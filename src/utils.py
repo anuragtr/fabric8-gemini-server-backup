@@ -101,6 +101,15 @@ class S3Helper:
         result = json.loads(obj.get()['Body'].read().decode('utf-8'))
         return result
 
+    def list_epv_objects(self):
+        """Fetch the list of epv objects found on the S3 bucket."""
+        prefix = '{dp}/ingestion-data/epv'.format(dp=self.deployment_prefix)
+        res = {'objects': []}
+        for obj in self.s3_bucket_obj.objects.filter(Prefix=prefix):
+            if os.path.basename(obj.key) != '':
+                res['objects'].append(obj.key)
+        return res
+
 
 _s3_helper = S3Helper()
 
