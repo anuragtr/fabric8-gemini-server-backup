@@ -44,4 +44,4 @@ s3transfer==0.2.0         # via boto3
 six==1.11.0               # via flask-cors, mando, more-itertools, pytest, python-dateutil
 sqlalchemy==1.2.12
 urllib3==1.23             # via botocore, requests
-werkzeug==0.14.1          # via flask
+werkzeug==0.15.3          # via flask
